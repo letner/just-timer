@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2018, Ed Letner.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+  <string name="eventName">Название</string>
+  <string name="eventNameHint">Введите название события</string>
+  <string name="eventDuration">Длительность</string>
+  <string name="change">Изменить</string>
+  <string name="editEvent">Редактировать события</string>
+  <string name="addEvent">Добавить событие</string>
+  <string name="noEvents">У вас еще нет событий</string>
+  <string name="events">События</string>
+  <string name="name_empty_error">Название события не может быть пустым</string>
+  <string name="timeline">Таймлайн</string>
+  <string name="timelines">Таймлайны</string>
+  <string name="settings">Настройки</string>
+  <string name="confirm_exit_alert_title">Подтверждение выхода</string>
+  <string name="confirm_exit_alert_text">Вы уверены, что хотите выйти из приложения в время работы таймера?</string>
+  <string name="channel_name">Уведомления Just Timer</string>
+  <string name="channel_description">Just Timer уведомляет вас о запущенном таймере и событиях, когда вы покидаете приложение</string>
+  <string name="fill_timeline_first">Добавьте хотя бы одно событие в таймлайн</string>
+</resources>

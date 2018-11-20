@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2018, Ed Letner.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical">
+
+  <LinearLayout
+      android:id="@+id/timeline"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/playing_timeline_layout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:keepScreenOn="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@drawable/playing_event_background"
+        android:visibility="gone"
+        >
+
+      <TextView
+          android:id="@+id/event_name"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:gravity="center_horizontal"
+          android:padding="16dp"
+          android:text="@string/long_event_name"
+          android:textAllCaps="true"
+          android:textColor="@color/colorTextWhite"
+          android:textSize="32sp"
+          android:textStyle="bold"/>
+      <TextView
+          android:id="@+id/event_duration"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:padding="16dp"
+          android:text="@string/eventDurationHint"
+          android:textColor="@color/colorTextWhite"
+          android:textSize="24sp"/>
+    </LinearLayout>
+    <com.zipsted.justtimer.ui.EventsLayout
+        android:id="@+id/events_cloud"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        >
+
+
+    </com.zipsted.justtimer.ui.EventsLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/timeline_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/event_item_reorderable"
+        />
+
+  </LinearLayout>
+
+  <include
+      layout="@layout/no_events_layout"
+      android:visibility="gone"/>
+
+</RelativeLayout>
