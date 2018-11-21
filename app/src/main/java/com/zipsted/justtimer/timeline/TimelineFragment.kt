@@ -134,9 +134,13 @@ class TimelineFragment : Fragment(), TimelineContract.View {
         }
     }
 
-    override fun showTimeline(events: List<TimelinedEvent>?) {
-        viewAdapter.events = events as java.util.ArrayList<TimelinedEvent>?
+    override fun showTimeline(events: List<TimelinedEvent>) {
+        viewAdapter.events = events as java.util.ArrayList<TimelinedEvent>
         timelineContainer.visibility = View.VISIBLE
+    }
+
+    override fun showEmptyTimeline() {
+        //TODO: Add some UI for empty Timeline
     }
 
     override fun showNoEvents() {
@@ -154,7 +158,7 @@ class TimelineFragment : Fragment(), TimelineContract.View {
         eventsLayout.visibility = View.GONE
         playingTimeline.visibility = View.VISIBLE
 
-        updateCurrentEvent(viewAdapter.events!!.size - 1)
+        updateCurrentEvent(viewAdapter.events.size - 1)
     }
 
     override fun switchToEditMode() {
@@ -174,7 +178,7 @@ class TimelineFragment : Fragment(), TimelineContract.View {
     }
 
     override fun currentEventIsDone(size: Int) {
-        if (viewAdapter.events!!.size > 0) {
+        if (viewAdapter.events.size > 0) {
             updateCurrentEvent(size - 1)
         }
     }
@@ -186,15 +190,15 @@ class TimelineFragment : Fragment(), TimelineContract.View {
 
     private fun updateCurrentEvent(size: Int) {
         if (!isTimelineEmpty()) {
-            playingTimeline.event_name.text = viewAdapter.events!![0].name
-            playingTimeline.event_duration.text = viewAdapter.events!![0].durationAsString()
+            playingTimeline.event_name.text = viewAdapter.events[0].name
+            playingTimeline.event_duration.text = viewAdapter.events[0].durationAsString()
 
             viewAdapter.updateEvents(size)
         }
     }
 
     private fun isTimelineEmpty(): Boolean {
-        return viewAdapter.events == null || viewAdapter.events!!.isEmpty()
+        return viewAdapter.events.isEmpty()
     }
 
     companion object {

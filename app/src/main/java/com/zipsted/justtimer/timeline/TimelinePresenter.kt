@@ -126,7 +126,7 @@ class TimelinePresenter(
                 eventsInTimelineRepository.loadEventsForTimeline(item, object : LoadCallback<TimelinedEvent> {
                     override fun onDataNotAvailable() {
                         isTimelineEmpty = true
-                        timelineView.showTimeline(null)
+                        timelineView.showEmptyTimeline()
                     }
 
                     override fun onLoaded(items: List<TimelinedEvent>) {

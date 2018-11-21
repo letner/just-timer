@@ -34,7 +34,7 @@ class RecyclerAdapter(
         private val dragStartListener: OnStartDragListener
 ) : RecyclerView.Adapter<RecyclerHolderView>() {
 
-    var events: ArrayList<TimelinedEvent>? = events as ArrayList<TimelinedEvent>
+    var events: ArrayList<TimelinedEvent> = events as ArrayList<TimelinedEvent>
         set(events) {
             field = events
             notifyDataSetChanged()
@@ -53,8 +53,8 @@ class RecyclerAdapter(
     @SuppressLint("ClickableViewAccessibility")
     override fun onBindViewHolder(holder: RecyclerHolderView, position: Int) {
         with(holder.view) {
-            findViewById<TextView>(R.id.event_name).text = events!![position].name
-            findViewById<TextView>(R.id.event_duration).text = events!![position].durationAsString()
+            findViewById<TextView>(R.id.event_name).text = events[position].name
+            findViewById<TextView>(R.id.event_duration).text = events[position].durationAsString()
 
             findViewById<ImageView>(R.id.reorder_handle)
                     .setOnTouchListener { view, motionEvent ->
@@ -66,11 +66,11 @@ class RecyclerAdapter(
         }
     }
 
-    override fun getItemCount(): Int = if (events == null) 0 else events!!.size
+    override fun getItemCount(): Int = events.size
 
     fun updateEvents(size: Int) {
-        if (events?.isNotEmpty()!!) {
-            val amountToDelete = events!!.size - size
+        if (events.isNotEmpty()) {
+            val amountToDelete = events.size - size
             for (i in 0 until amountToDelete) {
                 removeAndNotify(0)
             }
@@ -84,7 +84,7 @@ class RecyclerAdapter(
 
     fun removeAndNotify(position: Int) {
         notifyItemRemoved(position)
-        events?.removeAt(position)
+        events.removeAt(position)
     }
 
 }
