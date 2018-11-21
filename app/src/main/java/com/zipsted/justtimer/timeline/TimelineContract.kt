@@ -29,7 +29,9 @@ interface TimelineContract {
 
         fun showEvents(events: List<Event>)
 
-        fun showTimeline(events: List<TimelinedEvent>?)
+        fun showTimeline(events: List<TimelinedEvent>)
+
+        fun showEmptyTimeline()
 
         fun showNoEvents()
 
