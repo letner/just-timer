@@ -3,3 +3,4 @@
 app/release
 *.iml
 local.properties
+build
