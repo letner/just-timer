@@ -48,7 +48,7 @@ class TimelinePresenter(
     private lateinit var timeline: Timeline
 
     //TODO: Have to move events from here and use repository cache instead.
-    private var events: ArrayList<TimelinedEvent>? = null
+    private var events: ArrayList<TimelinedEvent> = ArrayList()
 
     override var isPlaying = false
         set(isPlaying) {
@@ -171,7 +171,7 @@ class TimelinePresenter(
     }
 
     override fun deleteEventFromTimeline(position: Int, size: Int) {
-        isTimelineEmpty = events == null || events!!.isEmpty()
+        isTimelineEmpty = events.isEmpty()
         eventsInTimelineRepository.deleteByPosition(position)
         for (i in position..size) {
             eventsInTimelineRepository.updateOrder(i, i - 1)
@@ -229,10 +229,10 @@ class TimelinePresenter(
     }
 
     fun currentEventIsDone(size: Int) {
-        for (i in 0 until (events!!.size - size)) {
-            events!!.removeAt(0)
+        for (i in 0 until (events.size - size)) {
+            events.removeAt(0)
         }
-        timelineView.currentEventIsDone(events!!.size)
+        timelineView.currentEventIsDone(events.size)
     }
 
     private fun bindService() {
